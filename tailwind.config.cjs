@@ -1,5 +1,6 @@
 const typography = require('@tailwindcss/typography')
 const forms = require('@tailwindcss/forms')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
@@ -7,42 +8,7 @@ const config = {
 
 	theme: {
 		fontFamily: {
-			body: [
-				'Geist',
-				'Inter',
-				'ui-sans-serif',
-				'system-ui',
-				'-apple-system',
-				'system-ui',
-				'Segoe UI',
-				'Roboto',
-				'Helvetica Neue',
-				'Arial',
-				'Noto Sans',
-				'sans-serif',
-				'Apple Color Emoji',
-				'Segoe UI Emoji',
-				'Segoe UI Symbol',
-				'Noto Color Emoji',
-			],
-			sans: [
-				'Geist',
-				'Inter',
-				'ui-sans-serif',
-				'system-ui',
-				'-apple-system',
-				'system-ui',
-				'Segoe UI',
-				'Roboto',
-				'Helvetica Neue',
-				'Arial',
-				'Noto Sans',
-				'sans-serif',
-				'Apple Color Emoji',
-				'Segoe UI Emoji',
-				'Segoe UI Symbol',
-				'Noto Color Emoji',
-			],
+			sans: ['Geist', ...defaultTheme.fontFamily.sans],
 			fontFamily: {
 				geist: ['Geist'],
 				'geist-mono': ['Geist Mono'],
