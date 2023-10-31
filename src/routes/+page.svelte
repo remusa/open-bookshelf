@@ -1,8 +1,7 @@
 <script>
-	import Greet from '$lib/Greet.svelte'
+	import Greet from '$lib/components/Greet.svelte'
 	import welcome_fallback from '$lib/images/svelte-welcome.png'
 	import welcome from '$lib/images/svelte-welcome.webp'
-	import Counter from './Counter.svelte'
 </script>
 
 <svelte:head>
@@ -27,8 +26,6 @@
 	</h2>
 
 	<Greet />
-
-	<Counter />
 </section>
 
 <style>
