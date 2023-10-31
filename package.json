@@ -9,7 +9,14 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test": "vitest",
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write ."
+		"format": "prettier --plugin-search-dir . --write .",
+		"clean": "rimraf dist/ node_modules/ && pnpm install",
+		"tauri": "tauri",
+		"tauri:test": "mocha",
+		"deps": "taze -Iwi",
+		"nvmrc": "node -v > .nvmrc",
+		"sign": "tauri signer generate -w ~/.tauri/bookshelf.key",
+		"sign:windows": "tauri signer generate -w $HOME/.tauri/bookshelf.key"
 	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
@@ -33,5 +40,12 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.34.0"
 	},
-	"type": "module"
+	"type": "module",
+	"engineStrict": true,
+	"engines": {
+		"node": ">=18.x"
+	},
+	"volta": {
+		"node": "21.1.0"
+	}
 }
