@@ -18,6 +18,9 @@
 		"sign": "tauri signer generate -w ~/.tauri/bookshelf.key",
 		"sign:windows": "tauri signer generate -w $HOME/.tauri/bookshelf.key"
 	},
+	"dependencies": {
+		"@tauri-apps/api": "^1.5.1"
+	},
 	"devDependencies": {
 		"@fontsource/fira-mono": "^4.5.10",
 		"@neoconfetti/svelte": "^1.0.0",
