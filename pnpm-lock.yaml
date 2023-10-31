@@ -3,7 +3,6 @@ lockfileVersion: 5.4
 specifiers:
   '@fontsource/fira-mono': ^4.5.10
   '@neoconfetti/svelte': ^1.0.0
-  '@sveltejs/adapter-auto': ^2.0.0
   '@sveltejs/adapter-static': ^2.0.3
   '@sveltejs/kit': ^1.20.4
   '@tailwindcss/forms': ^0.5.3
@@ -37,7 +36,6 @@ dependencies:
 devDependencies:
   '@fontsource/fira-mono': 4.5.10
   '@neoconfetti/svelte': 1.0.0
-  '@sveltejs/adapter-auto': 2.1.0_@sveltejs+kit@1.27.2
   '@sveltejs/adapter-static': 2.0.3_@sveltejs+kit@1.27.2
   '@sveltejs/kit': 1.27.2_svelte@4.2.2+vite@4.5.0
   '@tailwindcss/forms': 0.5.6_tailwindcss@3.3.5
@@ -414,15 +412,6 @@ packages:
 
   /@sinclair/typebox/0.27.8:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
-    dev: true
-
-  /@sveltejs/adapter-auto/2.1.0_@sveltejs+kit@1.27.2:
-    resolution: {integrity: sha512-o2pZCfATFtA/Gw/BB0Xm7k4EYaekXxaPGER3xGSY3FvzFJGTlJlZjBseaXwYSM94lZ0HniOjTokN3cWaLX6fow==}
-    peerDependencies:
-      '@sveltejs/kit': ^1.0.0
-    dependencies:
-      '@sveltejs/kit': 1.27.2_svelte@4.2.2+vite@4.5.0
-      import-meta-resolve: 3.0.0
     dev: true
 
   /@sveltejs/adapter-static/2.0.3_@sveltejs+kit@1.27.2:
@@ -1537,10 +1526,6 @@ packages:
     dependencies:
       parent-module: 1.0.1
       resolve-from: 4.0.0
-    dev: true
-
-  /import-meta-resolve/3.0.0:
-    resolution: {integrity: sha512-4IwhLhNNA8yy445rPjD/lWh++7hMDOml2eHtd58eG7h+qK3EryMuuRbsHGPikCoAgIkkDnckKfWSk2iDla/ejg==}
     dev: true
 
   /imurmurhash/0.1.4:
