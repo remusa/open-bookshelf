@@ -1,4 +1,3 @@
-
 <aside>
-
+	<slot />
 </aside>

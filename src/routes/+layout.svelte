@@ -1,53 +1,46 @@
-<script>
-	import Header from '../lib/components/Header.svelte'
-	import './styles.css'
+<script lang="ts">
+	import { page } from '$app/stores'
+	import logo from '$lib/images/svelte-logo.svg'
+	import '../app.postcss'
+	import type { LayoutData } from './$types'
+
+	export let data: LayoutData
 </script>
 
-<div class="app">
-	<Header />
+<div class="flex flex-col w-full h-full">
+	<header class="flex justify-between p-4 px-4">
+		<div class="flex items-center justify-center">
+			<img class="w-[2em] h-[2em] object-contain" src={logo} alt="SvelteKit" />
+		</div>
 
-	<main class="">
-		<slot />
-	</main>
+		<div class="flex items-center justify-center">
+			<button>Dark</button>
+			<button>Light</button>
+		</div>
+	</header>
 
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+	<section class="flex flex-row w-screen border border-red grow">
+		<nav class="flex justify-center w-2/12 p-6 bg-green-50">
+			<ul>
+				{#each data.menu as route}
+					<li
+						class="px-2 py-1 first-letter:capitalize"
+						aria-current={$page.url.pathname === route.path ? 'page' : undefined}
+					>
+						<a href={route.path}>{route.title}</a>
+					</li>
+				{/each}
+			</ul>
+		</nav>
+
+		<main class="p-6 bg-gray-400 grow">
+			<slot />
+		</main>
+
+		<aside class="w-2/12 p-6 bg-gray-700">Aside</aside>
+	</section>
+
+	<footer class="flex justify-center w-full p-6">
+		<p>Footer</p>
 	</footer>
 </div>
-
-<style>
-	.app {
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
-	}
-</style>
