@@ -2,3 +2,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Geist';
+		src: local('Geist'), local('Geist'), local('geist'), local('geist'), url('/fonts/Geist/Geist-Regular.otf');
+		font-weight: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Geist';
+		src: local('Geist Bold'), local('Geist-Bold'), local('geist bold'), local('geist-bold'),
+			url('/fonts/Geist/Geist-Bold.otf');
+		font-weight: bold;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Geist Mono';
+		src: local('Geist'), local('Geist'), local('geist'), local('geist'), url('/fonts/Geist Mono/Geist-Mono-Regular.otf');
+		font-weight: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Geist Mono';
+		src: local('Geist Mono Bold'), local('Geist-Mono-Bold'), local('geist mono bold'), local('geist-mono-bold'),
+			url('/fonts/Geist Mono/GeistMono-Bold.otf');
+		font-weight: bold;
+		font-display: swap;
+	}
+}
