@@ -47,17 +47,11 @@
 
 		<div class="flex items-center justify-center">
 			{#if isDark}
-				<button on:click={() => switchTheme('light')} class="px-2 py-1" title="Light mode"
-					><HeroiconsOutlineSun /></button
-				>
-			{:else if !isDark}
-				<button on:click={() => switchTheme('dark')} class="px-2 py-1" title="Dark mode"
-					><HeroiconsOutlineMoon /></button
-				>
+				<button on:click={() => switchTheme('light')} title="Light mode"><HeroiconsOutlineSun /></button>
+			{:else}
+				<button on:click={() => switchTheme('dark')} title="Dark mode"><HeroiconsOutlineMoon /></button>
 			{/if}
-			<button on:click={() => switchTheme('auto')} class="px-2 py-1" title="Auto"
-				><HeroiconsOutlineDesktopComputer /></button
-			>
+			<button on:click={() => switchTheme('auto')} title="Auto"><HeroiconsOutlineDesktopComputer /></button>
 		</div>
 	</header>
 
@@ -83,3 +77,9 @@
 		<p>Footer</p>
 	</footer>
 </div>
+
+<style lang="postcss">
+	button {
+		@apply shadow border dark:border-gray-900 px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded;
+	}
+</style>
