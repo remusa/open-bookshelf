@@ -5,6 +5,12 @@
 	import type { LayoutData } from './$types'
 
 	export let data: LayoutData
+
+	const routes = [
+		{ path: '/reading', title: 'reading' },
+		{ path: '/finished', title: 'finished' },
+		{ path: '/discover', title: 'discover' },
+	]
 </script>
 
 <div class="flex flex-col w-full h-full">
@@ -14,8 +20,8 @@
 		</div>
 
 		<div class="flex items-center justify-center">
-			<button>Dark</button>
-			<button>Light</button>
+			<button class="px-2 py-1">Dark</button>
+			<button class="px-2 py-1">Light</button>
 		</div>
 	</header>
 
@@ -23,12 +29,15 @@
 		<nav class="flex justify-center w-2/12 p-6 bg-green-50">
 			<ul>
 				{#each data.menu as route}
-					<li
-						class="px-2 py-1 first-letter:capitalize"
-						aria-current={$page.url.pathname === route.path ? 'page' : undefined}
-					>
+					<li class="px-2 py-1 capitalize" aria-current={$page.url.pathname === route.path ? 'page' : undefined}>
 						<a href={route.path}>{route.title}</a>
 					</li>
+				{/each}
+
+				{#each routes as route}
+				<li class="px-2 py-1 capitalize" aria-current={$page.url.pathname === 'reading' ? 'page' : undefined}>
+					<a href={route.path}>{route.title}</a>
+				</li>
 				{/each}
 			</ul>
 		</nav>

@@ -1,10 +1,6 @@
 import { z } from 'zod'
 import type { LayoutLoad } from './$types'
 
-export const prerender = true
-
-export const ssr = false
-
 const modules = import.meta.glob('./**/*.svelte')
 
 const bodySchema = z.object({
@@ -33,3 +29,7 @@ export const load: LayoutLoad = async ({}) => {
 		menu,
 	}
 }
+
+export const prerender = true
+
+export const ssr = false
