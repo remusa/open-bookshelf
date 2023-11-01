@@ -1,10 +1,19 @@
 <script lang="ts">
 	import { page } from '$app/stores'
+	import HeroiconsOutlineSun from '$lib/components/icons/HeroiconsOutlineSun.svelte'
 	import logo from '$lib/images/svelte-logo.svg'
+	import type { ThemeType } from '$lib/types/types'
+	import { colorScheme } from '$lib/utils/theme'
 	import '../app.postcss'
 	import type { LayoutData } from './$types'
+	import HeroiconsOutlineDesktopComputer from './../lib/components/icons/HeroiconsOutlineDesktopComputer.svelte'
+	import HeroiconsOutlineMoon from './../lib/components/icons/HeroiconsOutlineMoon.svelte'
 
 	export let data: LayoutData
+
+	function switchTheme(theme: ThemeType) {
+		colorScheme.set(theme)
+	}
 </script>
 
 <div class="flex flex-col w-full h-full">
@@ -14,8 +23,9 @@
 		</div>
 
 		<div class="flex items-center justify-center">
-			<button class="px-2 py-1">Dark</button>
-			<button class="px-2 py-1">Light</button>
+			<button on:click={() => switchTheme('light')} class="px-2 py-1"><HeroiconsOutlineSun /></button>
+			<button on:click={() => switchTheme('dark')} class="px-2 py-1"><HeroiconsOutlineMoon /></button>
+			<button on:click={() => switchTheme('auto')} class="px-2 py-1"><HeroiconsOutlineDesktopComputer /></button>
 		</div>
 	</header>
 

@@ -1,5 +1,8 @@
 import { z } from 'zod'
 
+const themeSchema = z.enum(['light', 'dark', 'auto'])
+export type ThemeType = z.infer<typeof themeSchema>
+
 const statusSchema = z.enum(['reading', 'finished', 're-reading', 'abandoned', 'on-hold', 'abandoned'])
 export type StatusType = z.infer<typeof statusSchema>
 
