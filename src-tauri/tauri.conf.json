@@ -4,7 +4,8 @@
     "beforeBuildCommand": "pnpm build",
     "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:5173",
-    "distDir": "../build"
+    "distDir": "../build",
+    "withGlobalTauri": false
   },
   "package": {
     "productName": "Bookshelf",
@@ -12,26 +13,61 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
+      "all": true,
+      "fs": {
+        "all": false,
+        "copyFile": false,
+        "createDir": false,
+        "exists": false,
+        "readDir": false,
+        "readFile": false,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "scope": [
+          "$APPDATA/*",
+          "$DOWNLOAD/*"
+        ],
+        "writeFile": false
+      },
+      "shell": {
+        "all": false,
+        "execute": false,
+        "open": "*",
+        "scope": [],
+        "sidecar": false
+      },
+      "notification": {
+        "all": false
+      },
+      "path": {
+        "all": true
+      },
+      "process": {
+        "all": false,
+        "exit": false,
+        "relaunch": false,
+        "relaunchDangerousAllowSymlinkMacos": false
+      },
       "window": {
         "all": false,
         "center": false,
-        "close": false,
+        "close": true,
         "create": false,
         "hide": false,
-        "maximize": false,
-        "minimize": false,
+        "maximize": true,
+        "minimize": true,
         "print": false,
         "requestUserAttention": false,
-        "setAlwaysOnTop": true,
+        "setAlwaysOnTop": false,
         "setClosable": false,
         "setContentProtected": false,
         "setCursorGrab": false,
         "setCursorIcon": false,
         "setCursorPosition": false,
         "setCursorVisible": false,
-        "setDecorations": false,
-        "setFocus": false,
+        "setDecorations": true,
+        "setFocus": true,
         "setFullscreen": false,
         "setIcon": false,
         "setIgnoreCursorEvents": false,
@@ -41,14 +77,18 @@
         "setMinimizable": false,
         "setPosition": false,
         "setResizable": false,
-        "setSize": false,
+        "setSize": true,
         "setSkipTaskbar": false,
         "setTitle": false,
         "show": false,
-        "startDragging": false,
-        "unmaximize": false,
-        "unminimize": false
+        "startDragging": true,
+        "unmaximize": true,
+        "unminimize": true
       }
+    },
+    "systemTray": {
+      "iconPath": "icons/SystemTray1.ico",
+      "iconAsTemplate": true
     },
     "bundle": {
       "active": true,
@@ -65,7 +105,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.renems.bookshelf",
+      "identifier": "com.tauri.dev",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -91,12 +131,14 @@
     },
     "windows": [
       {
-        "fullscreen": false,
-        "minWidth": 800,
-        "minHeight": 600,
-        "resizable": true,
         "title": "Bookshelf",
         "label": "main",
+        "minWidth": 800,
+        "minHeight": 600,
+        "width": 800,
+        "height": 600,
+        "fullscreen": false,
+        "resizable": true,
         "visible": true,
         "decorations": true,
         "alwaysOnTop": false
