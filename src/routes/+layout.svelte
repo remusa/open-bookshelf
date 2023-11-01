@@ -1,9 +1,9 @@
 <script lang="ts">
+	import { browser } from '$app/environment'
 	import { page } from '$app/stores'
 	import HeroiconsOutlineSun from '$lib/components/icons/HeroiconsOutlineSun.svelte'
 	import logo from '$lib/images/svelte-logo.svg'
 	import type { ThemeType } from '$lib/types/types'
-	import { colorScheme } from '$lib/utils/theme'
 	import '../app.postcss'
 	import type { LayoutData } from './$types'
 	import HeroiconsOutlineDesktopComputer from './../lib/components/icons/HeroiconsOutlineDesktopComputer.svelte'
@@ -11,8 +11,31 @@
 
 	export let data: LayoutData
 
+	function getIsDark() {
+		return (
+			localStorage.theme === 'dark' ||
+			(!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		)
+	}
+
+	function toggleDarkMode(darkMode: boolean) {
+		if (darkMode) {
+			document.documentElement.classList.add('dark')
+		} else {
+			document.documentElement.classList.remove('dark')
+		}
+	}
+
+	let isDark = getIsDark()
+
+	if (browser) {
+		toggleDarkMode(isDark)
+	}
+
 	function switchTheme(theme: ThemeType) {
-		colorScheme.set(theme)
+		localStorage.setItem('theme', theme)
+		isDark = getIsDark()
+		toggleDarkMode(isDark)
 	}
 </script>
 
@@ -23,9 +46,18 @@
 		</div>
 
 		<div class="flex items-center justify-center">
-			<button on:click={() => switchTheme('light')} class="px-2 py-1"><HeroiconsOutlineSun /></button>
-			<button on:click={() => switchTheme('dark')} class="px-2 py-1"><HeroiconsOutlineMoon /></button>
-			<button on:click={() => switchTheme('auto')} class="px-2 py-1"><HeroiconsOutlineDesktopComputer /></button>
+			{#if isDark}
+				<button on:click={() => switchTheme('light')} class="px-2 py-1" title="Light mode"
+					><HeroiconsOutlineSun /></button
+				>
+			{:else if !isDark}
+				<button on:click={() => switchTheme('dark')} class="px-2 py-1" title="Dark mode"
+					><HeroiconsOutlineMoon /></button
+				>
+			{/if}
+			<button on:click={() => switchTheme('auto')} class="px-2 py-1" title="Auto"
+				><HeroiconsOutlineDesktopComputer /></button
+			>
 		</div>
 	</header>
 

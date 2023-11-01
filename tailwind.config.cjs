@@ -17,6 +17,10 @@ const config = {
 				'geist-mono': ['Geist Mono'],
 			},
 		},
+
+		extend: {
+			colors: {},
+		},
 	},
 
 	plugins: [forms, typography],
