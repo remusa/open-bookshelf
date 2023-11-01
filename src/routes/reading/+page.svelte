@@ -5,15 +5,12 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<title>Reading</title>
+	<meta name="description" content="Reading" />
 </svelte:head>
 
 <section>
-	<h1>Home</h1>
+	<h1>Reading</h1>
 
 	<Greet />
 </section>
-
-<style>
-</style>

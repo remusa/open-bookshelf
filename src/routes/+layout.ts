@@ -12,16 +12,17 @@ type BodyType = z.infer<typeof bodySchema>
 
 const body: BodyType[] = []
 
-for (let path in modules) {
-	let pathSanitized = path.replace('.svelte', '').replace('./', '/').replaceAll('/+page', '')
+for (const path in modules) {
+	const pathSanitized = path
+		.replace('./', '/')
+		.replaceAll('.svelte', '')
+		.replaceAll('/+page', '')
+		.replaceAll('/+layout', '')
 	body.push({
 		title: pathSanitized.substring(pathSanitized.lastIndexOf('/') + 1),
 		path: pathSanitized.includes('index') ? pathSanitized.replace('index', '') : pathSanitized,
 	})
 }
-
-body[0].title = 'home'
-body[0].path = '/'
 
 export const load: LayoutLoad = async ({}) => {
 	const menu = await Promise.all(body.filter((item) => item.title))

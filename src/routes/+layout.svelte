@@ -5,12 +5,6 @@
 	import type { LayoutData } from './$types'
 
 	export let data: LayoutData
-
-	const routes = [
-		{ path: '/reading', title: 'reading' },
-		{ path: '/finished', title: 'finished' },
-		{ path: '/discover', title: 'discover' },
-	]
 </script>
 
 <div class="flex flex-col w-full h-full">
@@ -32,12 +26,6 @@
 					<li class="px-2 py-1 capitalize" aria-current={$page.url.pathname === route.path ? 'page' : undefined}>
 						<a href={route.path}>{route.title}</a>
 					</li>
-				{/each}
-
-				{#each routes as route}
-				<li class="px-2 py-1 capitalize" aria-current={$page.url.pathname === 'reading' ? 'page' : undefined}>
-					<a href={route.path}>{route.title}</a>
-				</li>
 				{/each}
 			</ul>
 		</nav>
