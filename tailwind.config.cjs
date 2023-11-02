@@ -2,6 +2,7 @@
 const typography = require('@tailwindcss/typography')
 const forms = require('@tailwindcss/forms')
 const defaultTheme = require('tailwindcss/defaultTheme')
+const plugin = require('tailwindcss/plugin')
 
 /** @type {import('tailwindcss').Config}*/
 const config = {
@@ -23,7 +24,15 @@ const config = {
 		},
 	},
 
-	plugins: [forms, typography],
+	plugins: [
+		forms,
+		typography,
+		plugin(function ({ addBase, addComponents, addUtilities }) {
+			addBase({})
+			addComponents({})
+			addUtilities({})
+		}),
+	],
 }
 
 module.exports = config

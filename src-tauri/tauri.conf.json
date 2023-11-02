@@ -33,7 +33,7 @@
       "shell": {
         "all": false,
         "execute": false,
-        "open": "*",
+        "open": ".*",
         "scope": [],
         "sidecar": false
       },
@@ -54,7 +54,7 @@
         "center": false,
         "close": true,
         "create": false,
-        "hide": false,
+        "hide": true,
         "maximize": true,
         "minimize": true,
         "print": false,
@@ -80,7 +80,7 @@
         "setSize": true,
         "setSkipTaskbar": false,
         "setTitle": false,
-        "show": false,
+        "show": true,
         "startDragging": true,
         "unmaximize": true,
         "unminimize": true
@@ -140,7 +140,7 @@
         "fullscreen": false,
         "resizable": true,
         "visible": true,
-        "decorations": true,
+        "decorations": false,
         "alwaysOnTop": false
       }
     ]
