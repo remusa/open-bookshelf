@@ -1,6 +1,7 @@
 {
 	"name": "src",
 	"version": "0.0.1",
+	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -13,10 +14,13 @@
 		"clean": "rimraf dist/ node_modules/ && pnpm install",
 		"tauri": "tauri",
 		"tauri:test": "mocha",
-		"deps": "taze -Iwi",
-		"nvmrc": "node -v > .nvmrc",
 		"sign": "tauri signer generate -w ~/.tauri/bookshelf.key",
-		"sign:windows": "tauri signer generate -w $HOME/.tauri/bookshelf.key"
+		"sign:windows": "tauri signer generate -w $HOME/.tauri/bookshelf.key",
+		"nvmrc": "node -v > .nvmrc",
+		"deps": "taze -Iwi",
+		"deps:sort": "npx sort-package-json",
+		"commitlint": "npx commitlint --edit --verbose",
+		"commitlint:last": "npx commitlint --from HEAD~1 --to HEAD --verbose"
 	},
 	"dependencies": {
 		"@tauri-apps/api": "^1.5.1",
@@ -25,6 +29,8 @@
 	},
 	"devDependencies": {
 		"@anatine/zod-mock": "^3.13.3",
+		"@commitlint/cli": "^18.2.0",
+		"@commitlint/config-conventional": "^18.1.0",
 		"@faker-js/faker": "^8.2.0",
 		"@fontsource/fira-mono": "^4.5.10",
 		"@melt-ui/pp": "^0.1.2",
@@ -42,6 +48,7 @@
 		"eslint": "^8.52.0",
 		"eslint-config-prettier": "^8.10.0",
 		"eslint-plugin-svelte": "^2.34.0",
+		"lefthook": "^1.5.2",
 		"postcss": "^8.4.31",
 		"postcss-load-config": "^4.0.1",
 		"prettier": "^2.8.0",
@@ -55,11 +62,10 @@
 		"vite": "^4.4.2",
 		"vitest": "^0.34.0"
 	},
-	"type": "module",
-	"engineStrict": true,
 	"engines": {
 		"node": ">=18.x"
 	},
+	"engineStrict": true,
 	"volta": {
 		"node": "21.1.0"
 	}
