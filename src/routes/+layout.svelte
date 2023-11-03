@@ -61,7 +61,7 @@
 		</div>
 	</header>
 
-	<section class="flex flex-row w-screen border border-red grow">
+	<section class="flex flex-row w-full border border-red grow">
 		<nav class="flex justify-center w-2/12 p-6 bg-green-50">
 			<ul>
 				{#each data.menu as route}
