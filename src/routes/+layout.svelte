@@ -88,7 +88,7 @@
 	.button {
 		@apply shadow border dark:border-gray-900 px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded;
 	}
-	.active {
 
+	.active {
 	}
 </style>

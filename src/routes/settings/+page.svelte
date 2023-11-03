@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Greet from '$lib/components/Greet.svelte'
 	import { setAlwaysOnTop } from '$lib/utils/tauri'
 	import { createSwitch, melt } from '@melt-ui/svelte'
 
@@ -19,6 +20,8 @@
 
 <section>
 	<h1>Settings</h1>
+
+	<Greet />
 
 	<form>
 		<div class="flex items-center">
