@@ -22,14 +22,14 @@
 
 	<form>
 		<div class="flex items-center">
-			<label class="capitalize pr-4 leading-none" for="always-on-top" id="always-on-top-label">always on top</label>
+			<label class="pr-4 leading-none capitalize" for="always-on-top" id="always-on-top-label">always on top</label>
 			<button
 				use:melt={$root}
 				class="relative h-6 cursor-default rounded-full bg-red-500 transition-colors data-[state=checked]:bg-blue-500"
 				id="always-on-top"
 				aria-labelledby="always-on-top-label"
 			>
-				<span class="thumb block rounded-full bg-white transition" />
+				<span class="block transition bg-white rounded-full thumb" />
 			</button>
 			<input use:melt={$input} />
 		</div>

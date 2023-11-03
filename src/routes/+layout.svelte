@@ -1,23 +1,15 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { page } from '$app/stores'
+	import Titlebar from '$lib/components/Titlebar.svelte'
 	import HeroiconsOutlineSun from '$lib/components/icons/HeroiconsOutlineSun.svelte'
 	import logo from '$lib/images/svelte-logo.svg'
 	import type { ThemeType } from '$lib/types/types'
-	import { appWindow } from '@tauri-apps/api/window'
-	import { onMount } from 'svelte'
+	import { colorScheme } from '$lib/utils/dark-mode'
 	import '../app.postcss'
 	import type { LayoutData } from './$types'
 	import HeroiconsOutlineDesktopComputer from './../lib/components/icons/HeroiconsOutlineDesktopComputer.svelte'
 	import HeroiconsOutlineMoon from './../lib/components/icons/HeroiconsOutlineMoon.svelte'
-
-	onMount(() => {
-		if (!browser) return
-
-		document?.querySelector('#titlebar-minimize')?.addEventListener('click', () => appWindow.minimize())
-		document?.querySelector('#titlebar-maximize')?.addEventListener('click', () => appWindow.toggleMaximize())
-		document?.querySelector('#titlebar-close')?.addEventListener('click', () => appWindow.close())
-	})
 
 	export let data: LayoutData
 
@@ -49,23 +41,10 @@
 	}
 </script>
 
-<div
-	data-tauri-drag-region
-	class="h-8 bg-gray-100 dark:bg-gray-800 select-none flex justify-end fixed top-0 left-0 right-0 mb-8"
->
-	<button class="titlebar-button" id="titlebar-minimize">
-		<img src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
-	</button>
-	<button class="titlebar-button" id="titlebar-maximize">
-		<img src="https://api.iconify.design/mdi:window-maximize.svg" alt="maximize" />
-	</button>
-	<button class="titlebar-button hover:bg-red-500 dark:hover:bg-red-400" id="titlebar-close">
-		<img src="https://api.iconify.design/mdi:close.svg" alt="close" />
-	</button>
-</div>
-
 <div class="flex flex-col w-full h-full">
-	<header class="flex justify-between p-4 px-4">
+	<Titlebar />
+
+	<header class="flex justify-between">
 		<div class="flex items-center justify-center">
 			<img class="w-[2em] h-[2em] object-contain" src={logo} alt="SvelteKit" />
 		</div>
@@ -76,7 +55,7 @@
 			{:else}
 				<button class="button" on:click={() => switchTheme('dark')} title="Dark mode"><HeroiconsOutlineMoon /></button>
 			{/if}
-			<button class="button" on:click={() => switchTheme('auto')} title="Auto"
+			<button class="button" class:active={$colorScheme === 'auto'} on:click={() => switchTheme('auto')} title="Auto"
 				><HeroiconsOutlineDesktopComputer /></button
 			>
 		</div>
@@ -109,8 +88,7 @@
 	.button {
 		@apply shadow border dark:border-gray-900 px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded;
 	}
+	.active {
 
-	.titlebar-button {
-		@apply inline-flex justify-center items-center w-8 h-8 hover:bg-gray-400;
 	}
 </style>
