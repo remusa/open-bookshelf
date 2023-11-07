@@ -1,14 +1,7 @@
-import { z } from 'zod'
+import type { BodyType } from '$lib/types/types'
 import type { LayoutLoad } from './$types'
 
 const modules = import.meta.glob('./**/*.svelte')
-
-const bodySchema = z.object({
-	title: z.string(),
-	path: z.string(),
-})
-
-type BodyType = z.infer<typeof bodySchema>
 
 const body: BodyType[] = []
 

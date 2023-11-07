@@ -1,5 +1,12 @@
 import { z } from 'zod'
 
+const bodySchema = z.object({
+	title: z.string(),
+	path: z.string(),
+})
+
+export type BodyType = z.infer<typeof bodySchema>
+
 const themeSchema = z.enum(['light', 'dark', 'auto'])
 export type ThemeType = z.infer<typeof themeSchema>
 
@@ -13,9 +20,8 @@ export const authorSchema = z.object({
 })
 
 export const tagSchema = z.object({
-	id: z.number(),
-	uuid: z.string().uuid(),
-	name: z.string(),
+	id: z.string().uuid(),
+	value: z.string(),
 })
 export type TagType = z.infer<typeof tagSchema>
 
