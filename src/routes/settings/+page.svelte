@@ -1,12 +1,19 @@
 <script lang="ts">
 	import Greet from '$lib/components/Greet.svelte'
+	import { shortcut } from '$lib/utils/shortcuts'
 	import { setAlwaysOnTop } from '$lib/utils/tauri'
 	import { createSwitch, melt } from '@melt-ui/svelte'
+
+	const settings = {
+		alwaysOnTop: true,
+	}
 
 	const {
 		elements: { root, input },
 		states: { checked },
-	} = createSwitch()
+	} = createSwitch({
+		defaultChecked: settings.alwaysOnTop,
+	})
 
 	$: {
 		setAlwaysOnTop($checked)
@@ -28,6 +35,7 @@
 			<label class="pr-4 leading-none capitalize" for="always-on-top" id="always-on-top-label">always on top</label>
 			<button
 				use:melt={$root}
+				use:shortcut={{ code: 'KeyA', control: true }}
 				class="relative h-6 cursor-default rounded-full bg-red-500 transition-colors data-[state=checked]:bg-blue-500"
 				id="always-on-top"
 				aria-labelledby="always-on-top-label"

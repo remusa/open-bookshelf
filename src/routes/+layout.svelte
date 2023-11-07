@@ -6,6 +6,7 @@
 	import logo from '$lib/images/svelte-logo.svg'
 	import type { ThemeType } from '$lib/types/types'
 	import { colorScheme } from '$lib/utils/dark-mode'
+	import { shortcut } from '$lib/utils/shortcuts'
 	import '../app.postcss'
 	import type { LayoutData } from './$types'
 	import HeroiconsOutlineDesktopComputer from './../lib/components/icons/HeroiconsOutlineDesktopComputer.svelte'
@@ -51,12 +52,26 @@
 
 		<div class="flex items-center justify-center gap-1">
 			{#if isDark}
-				<button class="button" on:click={() => switchTheme('light')} title="Light mode"><HeroiconsOutlineSun /></button>
+				<button
+					class="button"
+					use:shortcut={{ code: 'KeyJ', control: true }}
+					on:click={() => switchTheme('light')}
+					title="Light mode"><HeroiconsOutlineSun /></button
+				>
 			{:else}
-				<button class="button" on:click={() => switchTheme('dark')} title="Dark mode"><HeroiconsOutlineMoon /></button>
+				<button
+					class="button"
+					use:shortcut={{ code: 'KeyJ', shift: true }}
+					on:click={() => switchTheme('dark')}
+					title="Dark mode"><HeroiconsOutlineMoon /></button
+				>
 			{/if}
-			<button class="button" class:active={$colorScheme === 'auto'} on:click={() => switchTheme('auto')} title="Auto"
-				><HeroiconsOutlineDesktopComputer /></button
+			<button
+				class="button"
+				use:shortcut={{ code: 'KeyJ', alt: true }}
+				class:active={$colorScheme === 'auto'}
+				on:click={() => switchTheme('auto')}
+				title="Auto"><HeroiconsOutlineDesktopComputer /></button
 			>
 		</div>
 	</header>
