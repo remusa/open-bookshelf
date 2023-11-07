@@ -46,7 +46,7 @@
 	<Titlebar />
 
 	<header class="flex justify-between">
-		<div class="flex items-center justify-center">
+		<div class="flex items-center justify-center p-2">
 			<img class="w-[2em] h-[2em] object-contain" src={logo} alt="SvelteKit" />
 		</div>
 
@@ -77,21 +77,25 @@
 	</header>
 
 	<section class="grid h-screen grid-cols-12 gap-2 p-4 grow border-y border-theme">
-		<nav class="col-span-3 p-4">
-			<ul>
-				{#each data.menu as route}
-					<li class="px-2 py-1 capitalize" aria-current={$page.url.pathname === route.path ? 'page' : undefined}>
+		<nav class="col-span-3">
+			<ul class="px-4">
+				{#each data.menu as route (route.title)}
+					<li class="p-4 py-1 capitalize" aria-current={$page.url.pathname === route.path ? 'page' : undefined}>
 						<a href={route.path}>{route.title}</a>
 					</li>
 				{/each}
 			</ul>
 		</nav>
 
-		<main class="col-span-6 p-4 border-x border-theme">
-			<slot />
+		<main class="col-span-6 border-x border-theme">
+			<div class="p-4">
+				<slot />
+			</div>
 		</main>
 
-		<aside class="col-span-3 p-4">Aside</aside>
+		<aside class="col-span-3">
+			<div class="p-4">Aside</div>
+		</aside>
 	</section>
 
 	<footer class="flex justify-center w-full p-4">
