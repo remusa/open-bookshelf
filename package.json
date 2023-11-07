@@ -25,6 +25,7 @@
 	},
 	"dependencies": {
 		"@tauri-apps/api": "^1.5.1",
+		"lucide-svelte": "^0.292.0",
 		"title": "^3.5.3",
 		"zod": "^3.22.4"
 	},
@@ -66,10 +67,11 @@
 		"vitest": "^0.34.6"
 	},
 	"engines": {
-		"node": ">=18.x"
+		"node": ">=20.x"
 	},
 	"engineStrict": true,
 	"volta": {
-		"node": "21.1.0"
+		"node": "21.1.0",
+		"npm": "10.2.3"
 	}
 }
