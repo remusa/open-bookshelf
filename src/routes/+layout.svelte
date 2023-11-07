@@ -49,7 +49,7 @@
 			<img class="w-[2em] h-[2em] object-contain" src={logo} alt="SvelteKit" />
 		</div>
 
-		<div class="flex items-center justify-center">
+		<div class="flex items-center justify-center gap-1">
 			{#if isDark}
 				<button class="button" on:click={() => switchTheme('light')} title="Light mode"><HeroiconsOutlineSun /></button>
 			{:else}
@@ -61,8 +61,8 @@
 		</div>
 	</header>
 
-	<section class="flex flex-row w-full border border-red grow">
-		<nav class="flex justify-center w-2/12 p-6 bg-green-50">
+	<section class="grid h-screen grid-cols-12 gap-2 p-4 grow border-y border-theme">
+		<nav class="col-span-3 p-4">
 			<ul>
 				{#each data.menu as route}
 					<li class="px-2 py-1 capitalize" aria-current={$page.url.pathname === route.path ? 'page' : undefined}>
@@ -72,23 +72,25 @@
 			</ul>
 		</nav>
 
-		<main class="p-6 bg-gray-400 grow">
+		<main class="col-span-6 p-4 border-x border-theme">
 			<slot />
 		</main>
 
-		<aside class="w-2/12 p-6 bg-gray-700">Aside</aside>
+		<aside class="col-span-3 p-4">Aside</aside>
 	</section>
 
-	<footer class="flex justify-center w-full p-6">
+	<footer class="flex justify-center w-full p-4">
 		<p>Footer</p>
 	</footer>
 </div>
 
 <style lang="postcss">
+	.border-theme {
+		@apply dark:border-gray-800 border-gray-950 text-black dark:text-white;
+	}
 	.button {
 		@apply shadow border dark:border-gray-900 px-2 py-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded;
 	}
-
 	.active {
 	}
 </style>

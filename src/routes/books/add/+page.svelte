@@ -48,7 +48,7 @@
         data-[disabled]:focus:!outline-none data-[disabled]:focus:!ring-0"
 					>
 						<span class="flex items-center border-r border-white/10 px-1.5">{t.value}</span>
-						<button use:melt={$deleteTrigger(t)} class="flex h-full items-center px-1 enabled:hover:bg-blue-300">
+						<button use:melt={$deleteTrigger(t)} class="flex items-center h-full px-1 enabled:hover:bg-blue-300">
 							<X class="square-3" />
 						</button>
 					</div>
