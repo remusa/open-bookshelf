@@ -1,22 +1,22 @@
 <script lang="ts">
 	import Greet from '$lib/components/Greet.svelte'
+	import { updateSettings } from '$lib/utils/settings'
 	import { shortcut } from '$lib/utils/shortcuts'
-	import { setAlwaysOnTop } from '$lib/utils/tauri'
 	import { createSwitch, melt } from '@melt-ui/svelte'
+	import type { PageData } from './$types'
 
-	const settings = {
-		alwaysOnTop: true,
-	}
+	export let data: PageData
+	const { settings } = data
 
 	const {
 		elements: { root, input },
 		states: { checked },
 	} = createSwitch({
-		defaultChecked: settings.alwaysOnTop,
+		defaultChecked: !!settings.alwaysOnTop,
 	})
 
 	$: {
-		setAlwaysOnTop($checked)
+		updateSettings('alwaysOnTop', $checked)
 	}
 </script>
 

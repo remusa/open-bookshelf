@@ -59,7 +59,7 @@
         "minimize": true,
         "print": false,
         "requestUserAttention": false,
-        "setAlwaysOnTop": false,
+        "setAlwaysOnTop": true,
         "setClosable": false,
         "setContentProtected": false,
         "setCursorGrab": false,

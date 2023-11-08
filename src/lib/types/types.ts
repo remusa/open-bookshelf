@@ -1,5 +1,13 @@
 import { z } from 'zod'
 
+const settingsSchema = z.object({
+	alwaysOnTop: z.boolean(),
+	darkMode: z.string(),
+})
+
+export type SettingsType = z.infer<typeof settingsSchema>
+export type SettingsKeys = keyof SettingsType
+
 const bodySchema = z.object({
 	title: z.string(),
 	path: z.string(),
