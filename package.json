@@ -17,8 +17,8 @@
 		"nvmrc": "node -v > .nvmrc",
 		"prepare": "husky install",
 		"preview": "vite preview",
-		"sign": "tauri signer generate -w ~/.tauri/bookshelf.key",
-		"sign:windows": "tauri signer generate -w $HOME/.tauri/bookshelf.key",
+		"sign": "tauri signer generate -w ~/.tauri/open-bookshelf.key",
+		"sign:windows": "tauri signer generate -w $HOME/.tauri/open-bookshelf.key",
 		"tauri": "tauri",
 		"tauri:test": "mocha",
 		"test": "vitest"
