@@ -20,6 +20,8 @@
 		"sign": "tauri signer generate -w ~/.tauri/open-bookshelf.key",
 		"sign:windows": "tauri signer generate -w $HOME/.tauri/open-bookshelf.key",
 		"tauri": "tauri",
+		"tauri:dev": "tauri dev",
+		"tauri:build": "tauri build",
 		"tauri:test": "mocha",
 		"test": "vitest"
 	},
