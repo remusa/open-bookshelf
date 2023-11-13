@@ -11,6 +11,7 @@ for (const path in modules) {
 		.replaceAll('.svelte', '')
 		.replaceAll('/+page', '')
 		.replaceAll('/+layout', '')
+		.replaceAll('-', ' ')
 	body.push({
 		title: pathSanitized.substring(pathSanitized.lastIndexOf('/') + 1),
 		path: pathSanitized.includes('index') ? pathSanitized.replace('index', '') : pathSanitized,
