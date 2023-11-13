@@ -4,7 +4,6 @@ const settingsSchema = z.object({
 	alwaysOnTop: z.boolean(),
 	darkMode: z.string(),
 })
-
 export type SettingsType = z.infer<typeof settingsSchema>
 export type SettingsKeys = keyof SettingsType
 
@@ -12,7 +11,6 @@ const bodySchema = z.object({
 	title: z.string(),
 	path: z.string(),
 })
-
 export type BodyType = z.infer<typeof bodySchema>
 
 const themeSchema = z.enum(['light', 'dark', 'auto'])
@@ -21,26 +19,26 @@ export type ThemeType = z.infer<typeof themeSchema>
 const statusSchema = z.enum(['reading', 'finished', 're-reading', 'abandoned', 'on-hold', 'abandoned'])
 export type StatusType = z.infer<typeof statusSchema>
 
-export const authorSchema = z.object({
+const authorSchema = z.object({
 	id: z.number(),
 	uuid: z.string().uuid(),
 	name: z.string(),
 })
 export type AuthorType = z.infer<typeof authorSchema>
 
-export const tagSchema = z.object({
+const tagSchema = z.object({
 	id: z.string().uuid(),
 	value: z.string(),
 })
 export type TagType = z.infer<typeof tagSchema>
 
-export const categorySchema = z.enum(['productivity', 'fiction'])
+const categorySchema = z.enum(['productivity', 'fiction'])
 export type CategoryType = z.infer<typeof categorySchema>
 
 export const bookSchema = z.object({
 	id: z.number(),
 	uuid: z.string().uuid(),
-	isbn: z.string(),
+	isbn: z.number(),
 	openLibraryId: z.string(),
 	title: z.string(),
 	subtitle: z.string(),
@@ -57,5 +55,6 @@ export const bookSchema = z.object({
 	createdBy: z.string(),
 	updatedBy: z.string(),
 	status: statusSchema,
+	review: z.string(),
 })
 export type BookType = z.infer<typeof bookSchema>

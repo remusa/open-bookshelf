@@ -8,7 +8,8 @@ export const booksMock = Array(25)
 	.map((_, i) => {
 		const mock = generateMock(bookSchema, { seed: i })
 		mock.id = i + 1
-		mock.description = faker.lorem.sentences(5)
 		mock.coverImageUrl = imageUrl
+		mock.description = faker.lorem.sentences(5)
+		mock.review = faker.lorem.sentences(3)
 		return mock
 	})
