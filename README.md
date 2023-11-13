@@ -3,9 +3,14 @@
 ## TODO:
 
 [] add: book manually
+[] edit: book
+[] delete: book
 [] add: search in Open Library
 [] add: scan a barcode
-[]
+[] reading: list view
+[] reading: cover view
+[] reading: cover view
+[] finished: multiple reading dates
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
