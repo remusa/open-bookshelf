@@ -26,6 +26,7 @@ export const authorSchema = z.object({
 	uuid: z.string().uuid(),
 	name: z.string(),
 })
+export type AuthorType = z.infer<typeof authorSchema>
 
 export const tagSchema = z.object({
 	id: z.string().uuid(),
@@ -40,7 +41,10 @@ export const bookSchema = z.object({
 	id: z.number(),
 	uuid: z.string().uuid(),
 	isbn: z.string(),
+	openLibraryId: z.string(),
 	title: z.string(),
+	subtitle: z.string(),
+	type: z.enum(['paper-book', 'e-book', 'audiobook']),
 	authors: z.array(authorSchema),
 	coverImageUrl: z.string(),
 	pageCount: z.number(),
