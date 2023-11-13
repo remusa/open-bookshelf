@@ -34,18 +34,22 @@
 					>
 						{pluralize(authors.length, 'author', 'authors')}: {authors}
 					</h6>
+
 					<h2
 						class="justify-between block mb-2 font-sans text-2xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900"
 					>
 						{title(book.title)}
 					</h2>
+
 					<p
 						class="block mb-8 font-sans text-base antialiased font-normal leading-relaxed text-gray-700 first-letter:capitalize"
 					>
 						{book.description}
 					</p>
+
 					<p>{book.publisher}</p>
-					<a class="inline-block" href="/books/{book.id}">
+
+					<a class="inline-block" href="/books/book/{book.id}">
 						<button
 							class="flex flex-row items-end justify-end gap-2 px-6 py-3 font-sans text-xs font-bold text-center text-pink-500 uppercase align-middle transition-all rounded-lg select-none hover:bg-pink-500/10 active:bg-pink-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
 							type="button"
