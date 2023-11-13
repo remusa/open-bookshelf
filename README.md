@@ -1,4 +1,11 @@
-# create-svelte
+# Open Bookshelf
+
+## TODO:
+
+[] add: book manually
+[] add: search in Open Library
+[] add: scan a barcode
+[]
 
 Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 

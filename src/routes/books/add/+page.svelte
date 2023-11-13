@@ -31,16 +31,87 @@
 </script>
 
 <section>
-	<h1>Add book</h1>
+	<h1>Add new book</h1>
 
 	<form method="POST">
+		<label for="cover">
+			select cover
+			<input type="file" name="cover" id="cover" />
+		</label>
+
+		<label for="title">
+			title
+			<input type="text" name="text" id="title" />
+		</label>
+
+		<label for="subtitle">
+			subtitle
+			<input type="text" name="text" id="subtitle" />
+		</label>
+
+		<label for="author">
+			author
+			<input type="text" name="text" id="author" />
+		</label>
+
+		<label for="book-type">
+			book type
+			<select name="book-type" id="book-type">
+				<option value="paper-book">paper book</option>
+				<option value="ebook">e-book</option>
+				<option value="audiobook">audiobook</option>
+			</select>
+		</label>
+
+		<div class="debug flex justify-evenly">
+			<button class="debug" on:click={() => null}>finished</button>
+			<button class="debug" on:click={() => null}>in progress</button>
+			<button class="debug" on:click={() => null}>for later</button>
+			<button class="debug" on:click={() => null}>in progress</button>
+		</div>
+
+		<label for="start-date">
+			select reading start date
+			<input type="datetime-local" name="start-date" id="start-date" />
+		</label>
+
+		<label for="end-date">
+			select reading end date
+			<input type="datetime-local" name="end-date" id="end-date" />
+		</label>
+
+		<label for="number-of-pages">
+			pages
+			<input type="number" />
+		</label>
+
+		<label for="publication-year">
+			publication year
+			<input type="date" />
+		</label>
+
+		<label for="description">
+			description
+			<input type="text" />
+		</label>
+
+		<label for="isbn">
+			isbn
+			<input type="number" />
+		</label>
+
+		<label for="open-library-id">
+			isbn
+			<input type="text" />
+		</label>
+
 		<div class="flex flex-col items-start justify-center gap-2">
 			<div
 				use:melt={$root}
 				class="flex min-w-[280px] flex-row flex-wrap gap-2.5 rounded-md bg-white px-3 py-2 text-blue-700
     focus-within:ring focus-within:ring-blue-400"
 			>
-				{#each $tags as t}
+				{#each $tags as t (t.id)}
 					<div
 						use:melt={$tag(t)}
 						class="flex items-center overflow-hidden rounded-md bg-blue-200 text-blue-900 [word-break:break-word]
@@ -67,6 +138,14 @@
 			</div>
 		</div>
 
-		<button class="" type="submit">add book</button>
+		<label for="review">
+			my review
+			<input type="text" />
+		</label>
+
+		<span class="flex justify-evenly">
+			<button class="">cancel</button>
+			<button class="" type="submit">add book</button>
+		</span>
 	</form>
 </section>
