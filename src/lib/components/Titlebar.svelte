@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment'
 	import { appWindow } from '@tauri-apps/api/window'
+	import { Maximize2, Minimize2, X } from 'lucide-svelte'
 	import { onMount } from 'svelte'
 
 	onMount(() => {
@@ -14,13 +15,13 @@
 
 <div data-tauri-drag-region class="flex justify-end h-8 bg-gray-100 select-none dark:bg-gray-950">
 	<button class="titlebar-button" id="titlebar-minimize">
-		<img class="title-bar-image" src="https://api.iconify.design/mdi:window-minimize.svg" alt="minimize" />
+		<Minimize2 />
 	</button>
 	<button class="titlebar-button" id="titlebar-maximize">
-		<img class="title-bar-image" src="https://api.iconify.design/mdi:window-maximize.svg" alt="maximize" />
+		<Maximize2 />
 	</button>
-	<button class="titlebar-button hover:!bg-red-500 dark:hover:!bg-red-400" id="titlebar-close">
-		<img class="title-bar-image" src="https://api.iconify.design/mdi:close.svg" alt="close" />
+	<button class="titlebar-button !bg-red-500 hover:!bg-red-400 dark:hover:!bg-red-400" id="titlebar-close">
+		<X />
 	</button>
 </div>
 
@@ -28,7 +29,7 @@
 	.titlebar-button {
 		@apply inline-flex justify-center items-center w-8 h-8 hover:bg-gray-400 dark:bg-gray-800;
 	}
-	.title-bar-image {
-		/* @apply dark:bg-slate-50; */
-	}
+	/* 	.title-bar-image {
+		@apply dark:bg-slate-50;
+	} */
 </style>
