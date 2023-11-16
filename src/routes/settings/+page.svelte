@@ -9,14 +9,25 @@
 	const { settings } = data
 
 	const {
-		elements: { root, input },
-		states: { checked },
+		elements: { root: alwaysOnTopRoot, input: alwaysOnTopInput },
+		states: { checked: alwaysOnTopChecked },
 	} = createSwitch({
 		defaultChecked: !!settings.alwaysOnTop,
 	})
 
 	$: {
-		updateSettings('alwaysOnTop', $checked)
+		updateSettings('alwaysOnTop', $alwaysOnTopChecked)
+	}
+
+	const {
+		elements: { root: useCustomTitlebarRoot, input: useCustomTitlebarInput },
+		states: { checked: useCustomTitlebarChecked },
+	} = createSwitch({
+		defaultChecked: !!settings.useCustomTitlebar,
+	})
+
+	$: {
+		updateSettings('useCustomTitlebar', $useCustomTitlebarChecked)
 	}
 </script>
 
@@ -34,7 +45,7 @@
 		<div class="flex items-center">
 			<label class="pr-4 leading-none capitalize" for="always-on-top" id="always-on-top-label">always on top</label>
 			<button
-				use:melt={$root}
+				use:melt={$alwaysOnTopRoot}
 				use:shortcut={{ code: 'KeyA', control: true }}
 				class="relative h-6 cursor-default rounded-full bg-red-500 transition-colors data-[state=checked]:bg-blue-500"
 				id="always-on-top"
@@ -42,7 +53,23 @@
 			>
 				<span class="block transition bg-white rounded-full thumb" />
 			</button>
-			<input use:melt={$input} />
+			<input use:melt={$alwaysOnTopInput} />
+		</div>
+
+		<div class="flex items-center">
+			<label class="pr-4 leading-none capitalize" for="custom-titlebar" id="custom-titlebar-label"
+				>use custom titlebar</label
+			>
+			<button
+				use:melt={$useCustomTitlebarRoot}
+				use:shortcut={{ code: 'KeyT', control: true }}
+				class="relative h-6 cursor-default rounded-full bg-red-500 transition-colors data-[state=checked]:bg-blue-500"
+				id="custom-titlebar"
+				aria-labelledby="custom-titlebar-label"
+			>
+				<span class="block transition bg-white rounded-full thumb" />
+			</button>
+			<input use:melt={$useCustomTitlebarInput} />
 		</div>
 	</form>
 </section>

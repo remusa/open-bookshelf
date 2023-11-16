@@ -6,6 +6,7 @@
 	import logo from '$lib/images/svelte-logo.svg'
 	import type { ThemeType } from '$lib/types/types'
 	import { colorScheme } from '$lib/utils/dark-mode'
+	import { settingsEntries } from '$lib/utils/settings'
 	import { shortcut } from '$lib/utils/shortcuts'
 	import '../app.postcss'
 	import type { LayoutData } from './$types'
@@ -13,6 +14,8 @@
 	import HeroiconsOutlineMoon from './../lib/components/icons/HeroiconsOutlineMoon.svelte'
 
 	export let data: LayoutData
+
+	const settings = settingsEntries
 
 	function getIsDark() {
 		return (
@@ -43,7 +46,9 @@
 </script>
 
 <div class="flex flex-col w-full h-full">
-	<Titlebar />
+	{#if settings.customTitlebar}
+		<Titlebar />
+	{/if}
 
 	<header class="flex justify-between">
 		<div class="flex items-center justify-center p-2">

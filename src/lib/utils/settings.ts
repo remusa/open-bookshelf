@@ -14,6 +14,10 @@ export async function updateSettings(key: SettingsKeys, value: boolean) {
 			await appWindow.setAlwaysOnTop(value)
 			break
 		}
+		case 'useCustomTitlebar': {
+			await appWindow.setDecorations(!value)
+			break
+		}
 		case 'darkMode': {
 			break
 		}
@@ -28,3 +32,5 @@ export async function loadSettings(key: SettingsKeys) {
 	const value = await settingsStore.get(key)
 	return value
 }
+
+export const settingsEntries = Object.fromEntries(await settingsStore.entries())

@@ -1,8 +1,9 @@
 import { z } from 'zod'
 
 const settingsSchema = z.object({
-	alwaysOnTop: z.boolean(),
 	darkMode: z.string(),
+	alwaysOnTop: z.boolean(),
+	useCustomTitlebar: z.boolean(),
 })
 export type SettingsType = z.infer<typeof settingsSchema>
 export type SettingsKeys = keyof SettingsType
