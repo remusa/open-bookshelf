@@ -2,7 +2,7 @@
   "tauri": {
     "windows": [
       {
-        "title": "",
+        "title": "Open Bookshelf",
         "label": "main",
         "minWidth": 800,
         "minHeight": 600,
