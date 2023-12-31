@@ -42,10 +42,10 @@ devDependencies:
     version: 5.0.8
   '@melt-ui/pp':
     specifier: ^0.1.2
-    version: 0.1.2(@melt-ui/svelte@0.57.3)(svelte@4.2.2)
+    version: 0.1.2(@melt-ui/svelte@0.67.0)(svelte@4.2.2)
   '@melt-ui/svelte':
-    specifier: ^0.57.3
-    version: 0.57.3(svelte@4.2.2)
+    specifier: ^0.67.0
+    version: 0.67.0(svelte@4.2.2)
   '@neoconfetti/svelte':
     specifier: ^1.0.0
     version: 1.0.0
@@ -638,6 +638,12 @@ packages:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
     dev: true
 
+  /@internationalized/date@3.5.1:
+    resolution: {integrity: sha512-LUQIfwU9e+Fmutc/DpRTGXSdgYZLBegi4wygCWDSVmUdLTaMHsQyASDiJtREwanwKuQLq0hY76fCJ9J/9I2xOQ==}
+    dependencies:
+      '@swc/helpers': 0.5.3
+    dev: true
+
   /@jest/schemas@29.6.3:
     resolution: {integrity: sha512-mo5j5X+jIZmJQveBKeS/clAueipV7KgiX1vMgCxam1RNYiqE1w62n0/tJJnHtjW8ZHcQco5gY85jA3mi0L+nSA==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
@@ -670,24 +676,25 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@melt-ui/pp@0.1.2(@melt-ui/svelte@0.57.3)(svelte@4.2.2):
+  /@melt-ui/pp@0.1.2(@melt-ui/svelte@0.67.0)(svelte@4.2.2):
     resolution: {integrity: sha512-GZeqp7UWLNZUC2dJpREnZrWMR88vy27WO7C3cIBz4KW3/CFD19FjNkd3VbSRfcRryrMkdnEs9nu2VUa8/0u58w==}
     engines: {pnpm: '>=8.6.3'}
     peerDependencies:
       '@melt-ui/svelte': '>= 0.29.0'
       svelte: ^3.55.0 || ^4.0.0
     dependencies:
-      '@melt-ui/svelte': 0.57.3(svelte@4.2.2)
+      '@melt-ui/svelte': 0.67.0(svelte@4.2.2)
       svelte: 4.2.2
     dev: true
 
-  /@melt-ui/svelte@0.57.3(svelte@4.2.2):
-    resolution: {integrity: sha512-2nGZmoaaaikLF+sDx7XU5cUsOzN2chY0QrIRJAngtT88bXw8MHRNvErG+YdFgLGsR3N5qnEw2D9XV1BgWKrSYw==}
+  /@melt-ui/svelte@0.67.0(svelte@4.2.2):
+    resolution: {integrity: sha512-fd9PsDE6sKbeyExagqH0nOpZEnDqyr2efbkjfmCRRYXVW5vlDEOPaSB+mg4Tjch121102sFH1Od+MlXwmeHy3A==}
     peerDependencies:
       svelte: '>=3 <5'
     dependencies:
       '@floating-ui/core': 1.5.0
       '@floating-ui/dom': 1.5.3
+      '@internationalized/date': 3.5.1
       dequal: 2.0.3
       focus-trap: 7.5.4
       nanoid: 4.0.2
@@ -797,6 +804,12 @@ packages:
       vitefu: 0.2.5(vite@4.5.0)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@swc/helpers@0.5.3:
+    resolution: {integrity: sha512-FaruWX6KdudYloq1AHD/4nU+UsMTdNE8CKyrseXWEcgjDAbvkwJg2QGPAnfIJLIWsjZOSPLOAykK6fuYp4vp4A==}
+    dependencies:
+      tslib: 2.6.2
     dev: true
 
   /@tailwindcss/forms@0.5.6(tailwindcss@3.3.5):
