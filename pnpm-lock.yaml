@@ -41,8 +41,8 @@ devDependencies:
     specifier: ^5.0.8
     version: 5.0.8
   '@melt-ui/pp':
-    specifier: ^0.1.2
-    version: 0.1.2(@melt-ui/svelte@0.57.3)(svelte@4.2.2)
+    specifier: ^0.3.0
+    version: 0.3.0(@melt-ui/svelte@0.57.3)(svelte@4.2.2)
   '@melt-ui/svelte':
     specifier: ^0.57.3
     version: 0.57.3(svelte@4.2.2)
@@ -868,14 +868,16 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@melt-ui/pp@0.1.2(@melt-ui/svelte@0.57.3)(svelte@4.2.2):
-    resolution: {integrity: sha512-GZeqp7UWLNZUC2dJpREnZrWMR88vy27WO7C3cIBz4KW3/CFD19FjNkd3VbSRfcRryrMkdnEs9nu2VUa8/0u58w==}
+  /@melt-ui/pp@0.3.0(@melt-ui/svelte@0.57.3)(svelte@4.2.2):
+    resolution: {integrity: sha512-b07Bdh8l2KcwKVCXOY+SoBw1dk9eWvQfMSi6SoacpRVyVmmfpi0kV4oGt3HYF0tUCB3sEmVicxse50ZzZxEzEA==}
     engines: {pnpm: '>=8.6.3'}
     peerDependencies:
       '@melt-ui/svelte': '>= 0.29.0'
-      svelte: ^3.55.0 || ^4.0.0
+      svelte: ^3.55.0 || ^4.0.0 || ^5.0.0-next.1
     dependencies:
       '@melt-ui/svelte': 0.57.3(svelte@4.2.2)
+      estree-walker: 3.0.3
+      magic-string: 0.30.5
       svelte: 4.2.2
     dev: true
 
