@@ -78,7 +78,7 @@
 	},
 	"engineStrict": true,
 	"volta": {
-		"node": "21.1.0",
+		"node": "21.7.3",
 		"npm": "10.2.3"
 	}
 }
