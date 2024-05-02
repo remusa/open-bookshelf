@@ -9,8 +9,8 @@ dependencies:
     specifier: ^1.5.1
     version: 1.5.1
   lucide-svelte:
-    specifier: ^0.292.0
-    version: 0.292.0(svelte@4.2.2)
+    specifier: ^0.377.0
+    version: 0.377.0(svelte@4.2.2)
   tauri-plugin-store-api:
     specifier: github:tauri-apps/tauri-plugin-store#v1
     version: github.com/tauri-apps/tauri-plugin-store/6e19887b1bdea9b921a31993d72396a350731e07
@@ -2924,10 +2924,10 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /lucide-svelte@0.292.0(svelte@4.2.2):
-    resolution: {integrity: sha512-bnTpg9pbm6pQDc+YiLK2yxtRFk2Cc+hbzwjAPaV85k56x10CJ9LsXjon6wRrlNTSdxJR7GOsRjz0A5ZNu3Z7dg==}
+  /lucide-svelte@0.377.0(svelte@4.2.2):
+    resolution: {integrity: sha512-RUsf2d/tNQuDAgPpBfkhgXfho0VCw5dA7O2ZT/wpl0JVMJelGlASfx5IMZRU8jYOqWSp9UlUXWa4MvLp1GzuPQ==}
     peerDependencies:
-      svelte: '>=3 <5'
+      svelte: ^3 || ^4 || ^5.0.0-next.42
     dependencies:
       svelte: 4.2.2
     dev: false
