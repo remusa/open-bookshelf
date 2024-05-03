@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"@tauri-apps/api": "^1.5.1",
-		"lucide-svelte": "^0.292.0",
+		"lucide-svelte": "^0.377.0",
 		"tauri-plugin-store-api": "github:tauri-apps/tauri-plugin-store#v1",
 		"title": "^3.5.3",
 		"zod": "^3.22.4"
